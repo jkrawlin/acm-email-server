@@ -1,5 +1,6 @@
 const express = require('express');
 const sgMail = require('@sendgrid/mail');
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());  // For reading data from frontend
@@ -35,8 +36,4 @@ app.post('/send-email', async (req, res) => {
   }
 });
 
-// Start the server on a flexible port (for Vercel/local)
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+module.exports = app;
