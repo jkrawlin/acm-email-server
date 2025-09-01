@@ -1,8 +1,10 @@
 const express = require('express');
 const { MailerSend, EmailParams, Sender, Recipient } = require("mailersend"); // New for MailerSend
 const admin = require('firebase-admin');
+const cors = require('cors');
 
 const app = express();
+app.use(cors()); // Allows calls from your app
 app.use(express.json());
 
 // Init FCM (uses env var you'll add next)
